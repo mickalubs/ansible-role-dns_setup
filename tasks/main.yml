@@ -1,8 +1,8 @@
 ---
   - name: Install DNS server
     yum:
-      name: "{{dns_pkg}}"
-      state: latest
+      name: "{{ dns_pkg }}"
+      state: installed
 
   - name: Copy named config file
     template:
@@ -21,7 +21,7 @@
 
   - name: Restart named services
     service:
-      name: "{{dns_service}}"
+      name: "{{ dns_service }}"
       state: restarted
 
 ...
