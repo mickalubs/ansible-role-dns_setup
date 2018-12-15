@@ -1,0 +1,39 @@
+$TTL 86400
+
+@   IN  SOA     {{DNS_host}}. root.{{domain}}. (
+
+        2018121501  ;Serial
+
+        3600        ;Refresh
+
+        1800        ;Retry
+
+        604800      ;Expire
+
+        86400       ;Minimum TTL
+
+)
+
+@       IN  NS          {{DNS_host}}.
+
+@       IN  PTR         {{domain}}.
+
+{{ha_lb1_host}}       IN  A   {{ha_lb1_ip}}
+
+{{ha_lb2_host}}       IN  A   {{ha_lb2_ip}}
+
+{{client1_host}}           IN  A   {{client1_ip}}
+
+{{client2_host}}           IN  A   {{client2_ip}}
+
+{{ha_virtual_host}}        IN  A   {{ha_virtual_ip}}
+
+{{ ha_lb1_ip.split('.')[-1][-3:] }}    IN  PTR         {{ha_lb1_host}}.{{domain}}.
+
+{{ ha_lb2_ip.split('.')[-1][-3:] }}    IN  PTR         {{ha_lb2_host}}.{{domain}}.
+
+{{ client1_ip.split('.')[-1][-3:] }}     IN  PTR         {{client1_host}}.{{domain}}.
+
+{{ client2_ip.split('.')[-1][-3:] }}      IN  PTR         {{client2_host}}.{{domain}}.
+
+{{ ha_virtual_ip.split('.')[-1][-3:] }}    IN  PTR         {{ha_virtual_host}}.{{domain}}.

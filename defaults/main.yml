@@ -1,0 +1,24 @@
+---
+dns_pkg:
+  - bind
+  - bind-utils
+dns_service: named
+DNS_ip: '192.168.1.16'
+DNS_host: 'dns1.lubs.local'
+DNS_host_short: 'dns1'
+network_range: '192.168.1.0/24'
+domain: 'lubs.local'
+forward_query_file: 'forward.lubs'
+reverse_query_file: 'reverse.lubs'
+reverse_net_range: '1.168.192'
+client1_ip: '192.168.1.13'
+client2_ip: '192.168.1.14'
+client1_host: 'client1'
+client2_host: 'client2'
+ha_virtual_ip: '192.168.1.15'
+ha_virtual_host: 'mybusiness'
+ha_lb1_ip: '192.168.1.11'
+ha_lb2_ip: '192.168.1.12'
+ha_lb1_host: 'LB1'
+ha_lb2_host: 'LB2'
+
